@@ -1,0 +1,484 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home Page</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .menu-icon {
+      display: inline-block;
+      width: 30px;
+      /* Adjust the width and height as needed */
+      height: 30px;
+      /* Add any additional styling as desired */
+    }
+
+    .body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("backgronud.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+
+    header {
+      background-color: #2222220c;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    /*  opacity: 0.3;*/
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    main {
+      padding: 5rem 1rem;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+    form{
+      position: absolute;
+      top: calc(100% - 80px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #222;
+    }
+
+    form button {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #b809e4;
+      margin-left: 900px;
+    }
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: sans-serif;
+    }
+
+    html,
+    body {
+      overflow: hidden;
+    }
+
+    form ul {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    form li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .download {
+      width: 200px;
+      height: 75px;
+      background: #000;
+      float: left;
+      border-radius: 4px;
+      position: relative;
+      color: #fff;
+      cursor: pointer;
+      border: 1px solid #fff;
+    }
+
+    .download .fa {
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      transform: translate(-50%, -50%);
+    }
+
+    .p1,
+    .p2 {
+      position: absolute;
+      left: 70px;
+    }
+
+    .p1 {
+      top: 20px;
+      font-size: 12px;
+    }
+
+    .p2 {
+      top: 35px;
+      font-size: 16px;
+    }
+
+    .download:hover {
+      filter: invert(100%);
+    }
+
+    .menu-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #007BFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 8;
+    }
+
+    .menu-icon {
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      position: relative;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: '';
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      position: absolute;
+      top: -10px;
+    }
+
+    .menu-icon::after {
+      top: 10px;
+    }
+
+    .menu-box {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: right 0.3s;
+      z-index: 5;
+    }
+
+    .menu-items {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .menu-items li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .menu-items li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .menu-box.active {
+      right: 0;
+    }
+
+
+
+    .container{
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.5s ease-in-out;
+    }
+    .container::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .content{
+      position: relative;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+    .leftBtn,
+    .rightBtn{
+      position: absolute;
+      font-size: 25px;
+      font-weight: 700;
+      color: aliceblue;
+      padding: 20px;
+      border: 2px solid yellow;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+    .leftBtn{
+      left: -70px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rightBtn{
+      right: -70px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .leftBtn img,
+    .rightBtn img{
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+    .imageContent{
+      position: relative;
+      width: 1100px;
+      height: 700px;
+      z-index: 3;
+    }
+    .imageContent .image{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      opacity: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .imageContent .image.active{
+      opacity: 1;
+    }
+
+
+
+
+
+
+
+
+
+    main {
+    padding: 20px;
+}
+
+section {
+    background-color: #00000000;
+    padding: 20px;
+    margin: 20px;
+    margin-top: 150px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #151414;
+}
+
+.start-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 20px 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+h1 {
+    color: #151414;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .body{
+    background-size: cover; 
+  }
+  .start-button{
+    padding: 20px 40px;
+    width: 120px;
+    text-align: center;
+    font-size: 20px;
+  }
+  h1 {
+    width: 90%;
+    font-size: 30px;
+    text-wrap: wrap;
+  }
+}
+
+  </style>
+</head>
+
+<body class="body">
+
+
+  <header>
+    <h1>Egyption Association of Celiac Patients</h1>
+    <div  id="menuButton" class="menu-button">
+      <div class="menu-icon"></div>
+    </div>
+    <div id="menuBox" class="menu-box">
+      <ul class="menu-items">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./who we are Page .html">Who We Are</a></li>
+        <li><a href="./Diseases And Their Treatment.html">Diseases And Their Treatment</a></li>
+        <li><a href="./Activity And Events page.html">Activity And Events</a></li>
+        <li><a href="./Contact us Page.html">Contact us</a></li>
+      </ul>
+      <div>
+        <div class="row">
+
+          <div class="col-lg-5">
+            <form action="#" class="sign-up-form d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+              <ul>
+                <li>
+                  <div class="download android button">
+                    <i class="fa fa-android fa-2x"></i>
+                    <span class="p1">download form</span>
+                    <span class="p2">Google Play</span>
+
+                  </div>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <div class="container">
+    <div class="content">
+      <main>
+       
+        <section>
+            
+            <a href="./who we are Page .html" class="start-button">Start</a>
+        </section>
+    </main>
+    </div>
+  </div>
+  <script>
+    const menuBox = document.querySelector('#menuBox')
+    const menuButton = document.querySelector('#menuButton')
+    menuButton.addEventListener('click',()=>{
+      menuBox.classList.toggle('active')
+    })
+
+
+
+
+    const leftBtn = document.querySelector('.leftBtn')
+    const images = document.querySelectorAll('.imageContent .image')
+    const rightBtn = document.querySelector('.rightBtn')
+    const container = document.querySelector('.container')
+    var index = 0
+    images[0].style.backgroundImage = `url('${images[0].getAttribute('data-imageUrl')}')`
+
+    rightBtn.addEventListener('click',()=>{
+        if(index < images.length-1){
+            index++
+        }else{
+            index = 0
+        }
+        appearImage(index)
+    })
+    leftBtn.addEventListener('click',()=>{
+        if(index !== 0){
+            index--
+        }else{
+            index = images.length-1
+        }
+        appearImage(index)
+    })
+
+    const appearImage = (idx)=>{
+        images.forEach((image)=>{
+            if(image.classList.contains('active')){
+                image.classList.remove('active')
+            }
+        })
+        images[idx].classList.add('active')
+        images[idx].style.backgroundImage = `url('${images[index].getAttribute('data-imageUrl')}')`
+    }
+  </script>
+
+
+</body>
+
+</html>
